@@ -6,54 +6,54 @@ const { error } = require('console');
 const postProduct = async (req, res) => {
     const { name, description, imageUrl, buyPrice, promotionPrice, amount, phone, status } = req.body;
     if (!name) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'Name is Required'
         })
     }
 
     if (!description) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'description is Required'
         })
     }
     if (!imageUrl) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'imageUrl is Required'
         })
     }
 
     if (!buyPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'buyPrice is Required'
         })
     }
     if (!promotionPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'promotionPrice is Required'
         })
     }
 
     if (!Number.isInteger(amount)) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'amount is Required'
         })
     }
 
     if (!phone) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'phone is Required'
         })
     }
 
     if (!status) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'status is Required'
         })
@@ -157,40 +157,40 @@ const putByIDProduct = (req, res) => {
     }
 
     if (!name) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'Name is Required'
         })
     }
 
     if (!description) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'description is Required'
         })
     }
     if (!imageUrl) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'imageUrl is Required'
         })
     }
 
     if (!buyPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'buyPrice is Required'
         })
     }
     if (!promotionPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'promotionPrice is Required'
         })
     }
 
     if (!Number.isInteger(amount)) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'amount is Required'
         })
