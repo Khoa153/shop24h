@@ -5,55 +5,56 @@ const { error } = require('console');
 // post Product Ref Product Type
 const postProduct = async (req, res) => {
     const { name, description, imageUrl, buyPrice, promotionPrice, amount, phone, status } = req.body;
+    console.log(name)
     if (!name) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'Name is Required'
         })
     }
 
     if (!description) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'description is Required'
         })
     }
     if (!imageUrl) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'imageUrl is Required'
         })
     }
 
     if (!buyPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'buyPrice is Required'
         })
     }
     if (!promotionPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'promotionPrice is Required'
         })
     }
 
-    if (!Number.isInteger(amount)) {
-        res.status(400).json({
+    if (!amount) {
+        return res.status(400).json({
             status: 'Bad request',
             message: 'amount is Required'
         })
     }
 
     if (!phone) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'phone is Required'
         })
     }
 
     if (!status) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'status is Required'
         })
@@ -86,7 +87,7 @@ const postProduct = async (req, res) => {
 
 }
 // get All Product
-const getAllProduct =  (req, res) => {
+const getAllProduct = (req, res) => {
     // try {
     //     productModel.find()
     //     return res.status(200).json({
@@ -148,7 +149,7 @@ const getByIDProduct = (req, res) => {
 // put By ID product
 const putByIDProduct = (req, res) => {
     let productID = req.params.productId;
-    const { name, description, imageUrl, buyPrice, promotionPrice, amount } = req.body;
+    const { name, description, imageUrl, buyPrice, promotionPrice, amount, phone, status } = req.body;
     if (!mongoose.Types.ObjectId.isValid(productID)) {
         return res.status(400).json({
             status: 'Bad request',
@@ -157,42 +158,56 @@ const putByIDProduct = (req, res) => {
     }
 
     if (!name) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'Name is Required'
         })
     }
 
     if (!description) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'description is Required'
         })
     }
     if (!imageUrl) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'imageUrl is Required'
         })
     }
 
     if (!buyPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'buyPrice is Required'
         })
     }
     if (!promotionPrice) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'Bad request',
             message: 'promotionPrice is Required'
         })
     }
 
-    if (!Number.isInteger(amount)) {
-        res.status(400).json({
+    if (!phone) {
+        return res.status(400).json({
+            status: 'Bad request',
+            message: 'Name is Required'
+        })
+    }
+
+    if (!amount) {
+        return res.status(400).json({
             status: 'Bad request',
             message: 'amount is Required'
+        })
+    }
+
+    if (!status) {
+        return res.status(400).json({
+            status: 'Bad request',
+            message: 'Name is Required'
         })
     }
 
@@ -202,7 +217,9 @@ const putByIDProduct = (req, res) => {
         imageUrl,
         buyPrice,
         promotionPrice,
-        amount
+        phone,
+        amount,
+        status
     }
 
     productModel.findByIdAndUpdate(productID, updateProduct)

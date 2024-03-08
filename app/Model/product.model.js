@@ -29,7 +29,8 @@ const productSchema = new Schema({
     },
     amount: {
         type: Number,
-        default: 0
+        default: 0,
+        required: true
     },
     phone: {
         type: String,
