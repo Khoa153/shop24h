@@ -150,6 +150,7 @@ const getByIDProduct = (req, res) => {
 const putByIDProduct = (req, res) => {
     let productID = req.params.productId;
     const { name, description, imageUrl, buyPrice, promotionPrice, amount, phone, status } = req.body;
+    console.log(req.body)
     if (!mongoose.Types.ObjectId.isValid(productID)) {
         return res.status(400).json({
             status: 'Bad request',
@@ -193,21 +194,21 @@ const putByIDProduct = (req, res) => {
     if (!phone) {
         return res.status(400).json({
             status: 'Bad request',
-            message: 'Name is Required'
+            message: 'Phone is Required'
         })
     }
 
     if (!amount) {
         return res.status(400).json({
             status: 'Bad request',
-            message: 'amount is Required'
+            message: 'Amount is Required'
         })
     }
 
     if (!status) {
         return res.status(400).json({
             status: 'Bad request',
-            message: 'Name is Required'
+            message: 'Status is Required'
         })
     }
 
